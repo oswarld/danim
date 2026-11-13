@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  DANIM launcher icon (adaptive, minSdk 28). The manifest keeps android:icon="@drawable/ic_launcher".
+  Foreground: the supplied nine-tile D symbol (assets/brand/danim-symbol-black.svg) unchanged in
+  geometry and two-tone colours, scaled to 46 dp (at most 66/sqrt2 = 46.7 dp for square artwork) so the whole mark, including its rounded outer
+  corners, stays inside the 66 dp safe circle of the 108 dp adaptive canvas (max extent 31.4 dp from
+  centre). Reference: developer.android.com/develop/ui/compose/system/icon_design_adaptive. Background: opaque light neutral. Not for notifications; see ic_notification.xml.
+-->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/danim_launcher_background" />
+    <foreground android:drawable="@drawable/ic_launcher_foreground" />
+    <monochrome android:drawable="@drawable/ic_launcher_monochrome" />
+</adaptive-icon>

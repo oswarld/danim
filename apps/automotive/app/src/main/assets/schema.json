@@ -1,0 +1,53 @@
+{
+  "packageName": "app.danim.automotive",
+  "appDescription": "A read-only vehicle record app that reports this car's battery, range, trips, charging cost and maintenance from the owner's DANIM records.",
+  "invokeWord": "",
+  "version": "0.5.0",
+  "actionCalls": [
+    {
+      "type": "function",
+      "function": {
+        "name": "GET_VEHICLE_BRIEFING",
+        "component": "service",
+        "description": "Reports the car's current battery level, driving range and whether today's planned round trip fits without charging.",
+        "parameters": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ANSWER_RECORD_QUESTION",
+        "component": "service",
+        "description": "Answers one question from the owner's vehicle records, such as weekly driving distance, charging cost, upcoming maintenance or the cheapest time to charge.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "topic": {
+              "type": "string",
+              "enum": ["battery", "day_plan", "week_driving", "charging_cost", "maintenance", "charge_timing", "last_trip"],
+              "description": "The record the driver is asking about."
+            }
+          },
+          "required": ["topic"]
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "SHOW_NEARBY_CHARGERS",
+        "component": "service",
+        "description": "Shows nearby charging stations in the navigation app.",
+        "parameters": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        }
+      }
+    }
+  ]
+}

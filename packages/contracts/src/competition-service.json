@@ -1,0 +1,205 @@
+{
+  "version": "2026-10-29.1",
+  "reportId": "danim-competition-fixed-records",
+  "synthetic": true,
+  "dataMode": "demo",
+  "source": "competition_fixture",
+  "title": {
+    "ko": "DANIM 공모전 시연 기록",
+    "en": "DANIM competition records"
+  },
+  "notice": {
+    "ko": "공개 가능한 고정 시연 기록입니다. 실제 차량 관측값이나 실시간 연결 상태가 아닙니다.",
+    "en": "Public fixed synthetic records. These are not real vehicle observations or a live connection."
+  },
+  "asOf": "2026-01-08",
+  "timeZone": "Asia/Seoul",
+  "currency": "KRW",
+  "period": {
+    "from": "2026-01-01T00:00:00Z",
+    "to": "2026-01-08T00:00:00Z",
+    "label": {
+      "en": "Separate synthetic management week",
+      "ko": "별도 합성 관리 주간"
+    }
+  },
+  "status": {
+    "observedAt": "2026-01-07T23:30:00Z",
+    "batterySocPercent": 74,
+    "rangeKm": 296,
+    "odometerKm": 12089.5,
+    "chargingState": "idle",
+    "fuelLevelPercent": null,
+    "fuelAvailability": "unsupported",
+    "batteryHealthPercent": null
+  },
+  "trips": [
+    {
+      "id": "demo-trip-week-1",
+      "date": "2026-01-03",
+      "distanceKm": 27,
+      "averageSpeedKph": 42,
+      "maximumSpeedKph": 78,
+      "assistedDistanceKm": 9.5
+    },
+    {
+      "id": "demo-trip-week-2",
+      "date": "2026-01-05",
+      "distanceKm": 44.2,
+      "averageSpeedKph": 38,
+      "maximumSpeedKph": 82,
+      "assistedDistanceKm": 12.6
+    },
+    {
+      "id": "demo-trip-week-3",
+      "date": "2026-01-07",
+      "distanceKm": 18.3,
+      "averageSpeedKph": 31,
+      "maximumSpeedKph": 60,
+      "assistedDistanceKm": 0
+    }
+  ],
+  "chargingSessions": [
+    {
+      "id": "demo-charge-week-1",
+      "startedAt": "2026-01-03T09:00:00Z",
+      "endedAt": "2026-01-03T10:00:00Z",
+      "energyKwh": 24,
+      "gridEnergyKwh": 26,
+      "tariffPerKwh": 250,
+      "cost": 6500,
+      "fromSoc": 40,
+      "toSoc": 71
+    },
+    {
+      "id": "demo-charge-week-2",
+      "startedAt": "2026-01-06T09:00:00Z",
+      "endedAt": "2026-01-06T10:20:00Z",
+      "energyKwh": 32,
+      "gridEnergyKwh": 35,
+      "tariffPerKwh": 300,
+      "cost": 10500,
+      "fromSoc": 30,
+      "toSoc": 71
+    }
+  ],
+  "maintenance": {
+    "scheduleBasis": "illustrative_owner_schedule",
+    "records": [
+      {
+        "id": "demo-maintenance-rotation",
+        "serviceName": {
+          "ko": "타이어 위치 교환",
+          "en": "Tire rotation"
+        },
+        "occurredOn": "2025-10-01",
+        "odometerKm": 10000,
+        "amountKrw": null,
+        "source": "owner_entered"
+      },
+      {
+        "id": "demo-maintenance-filter",
+        "serviceName": {
+          "ko": "캐빈 필터 교체",
+          "en": "Cabin filter replacement"
+        },
+        "occurredOn": "2025-01-15",
+        "odometerKm": 8000,
+        "amountKrw": 30000,
+        "source": "owner_entered"
+      }
+    ],
+    "schedules": [
+      {
+        "id": "demo-tire-rotation",
+        "name": {
+          "ko": "타이어 위치 교환",
+          "en": "Tire rotation"
+        },
+        "lastServiceDate": "2025-10-01",
+        "lastServiceOdometerKm": 10000,
+        "intervalDays": 180,
+        "intervalKm": 10000
+      },
+      {
+        "id": "demo-cabin-filter",
+        "name": {
+          "ko": "캐빈 필터",
+          "en": "Cabin filter"
+        },
+        "lastServiceDate": "2025-01-15",
+        "lastServiceOdometerKm": 8000,
+        "intervalDays": 365,
+        "intervalKm": 15000
+      },
+      {
+        "id": "demo-brake-fluid",
+        "name": {
+          "ko": "브레이크 오일",
+          "en": "Brake fluid"
+        },
+        "lastServiceDate": null,
+        "lastServiceOdometerKm": null,
+        "intervalDays": 730,
+        "intervalKm": null
+      }
+    ],
+    "assumptions": {
+      "ko": "정비 주기는 가상의 소유자가 입력한 예시입니다. 제조사 권장 주기가 아니며 기준일은 2026-01-08입니다.",
+      "en": "Intervals are fictional owner-supplied examples, not manufacturer recommendations. Assessment date: 2026-01-08."
+    }
+  },
+  "alerts": [
+    {
+      "id": "demo-alert-filter",
+      "recordedAt": "2026-01-08T00:00:00Z",
+      "kind": "maintenance",
+      "label": {
+        "ko": "캐빈 필터 예시 주기까지 7일",
+        "en": "7 days until the example cabin filter interval"
+      },
+      "delivery": "demo_inbox_only"
+    },
+    {
+      "id": "demo-alert-gap",
+      "recordedAt": "2026-01-04T03:00:00Z",
+      "kind": "coverage",
+      "label": {
+        "ko": "기록되지 않은 구간은 알 수 없음으로 유지",
+        "en": "Unrecorded intervals remain unknown"
+      },
+      "delivery": "demo_inbox_only"
+    }
+  ],
+  "questions": [
+    {
+      "id": "departure",
+      "ko": "출발 전 배터리와 주행가능거리를 확인하고 기록 시점도 알려줘.",
+      "en": "Before departure, check the recorded battery and range and tell me when they were recorded."
+    },
+    {
+      "id": "weekly-cost",
+      "ko": "시연 주간에 얼마나 주행했고 충전에 얼마를 썼는지 정리해줘.",
+      "en": "Summarize driving distance and charging costs for the demonstration week."
+    },
+    {
+      "id": "maintenance",
+      "ko": "정비 기록과 예시 주기를 보고 무엇을 준비하면 좋을지 알려줘. 모르는 항목은 구분해줘.",
+      "en": "Review the maintenance records and example intervals. What should I prepare, and what remains unknown?"
+    }
+  ],
+  "assumptions": {
+    "ko": [
+      "모든 기록은 공모전용 합성 데이터입니다.",
+      "충전비는 전력망 사용량 × 세션별 예시 요금입니다. 배터리 유입량과 구분합니다.",
+      "누락된 운행·측정값은 추정하지 않습니다.",
+      "실제 제어·위치·푸시·결제는 제공하지 않습니다."
+    ],
+    "en": [
+      "All records are synthetic competition fixtures.",
+      "Charging cost uses grid energy times the per-session example tariff, distinct from battery energy.",
+      "Missing activity and measurements are not inferred.",
+      "No actual vehicle control, location, push or billing is provided."
+    ]
+  }
+}

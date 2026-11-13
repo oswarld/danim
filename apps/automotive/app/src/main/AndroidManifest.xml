@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- API 34+. Play policy requires declaring/justifying specialUse; confirm approval for the Pleos channel. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Read-only Pleos Vehicle permissions (normal). No CONTROL_* and no PRIVATE_* permissions. -->
+    <uses-permission android:name="pleos.car.permission.CAR_DRIVE" />
+    <uses-permission android:name="pleos.car.permission.CAR_ENERGY" />
+
+    <!-- Pleos speech services (normal): spoken briefings and voice questions. No audio leaves the car through DANIM. -->
+    <uses-permission android:name="pleos.car.permission.TTS_SERVICE" />
+    <uses-permission android:name="pleos.car.permission.STT_SERVICE" />
+    <!-- Pleos navigation hand-off (normal): read the destination already set, and ask the navigation app to show
+         its nearby-chargers screen. DANIM sets no route and reads no location. -->
+    <uses-permission android:name="pleos.car.permission.NAVI_ROUTE" />
+    <uses-permission android:name="pleos.car.permission.NAVI_CUSTOM_MAP" />
+
+    <!-- Standard AAOS CarPropertyManager reads: powertrain is normal; speed and energy are dangerous (runtime grant). -->
+    <uses-permission android:name="android.car.permission.CAR_POWERTRAIN" />
+    <uses-permission android:name="android.car.permission.CAR_SPEED" />
+    <uses-permission android:name="android.car.permission.CAR_ENERGY" />
+
+    <application
+        android:name=".DanimApp"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Danim"
+        android:usesCleartextTraffic="false"
+        tools:targetApi="34">
+
+        <!-- AAOS Car library; optional so the APK still installs where it does not exist. -->
+        <uses-library android:name="android.car" android:required="false" />
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".collector.CollectorService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Read-only collection of consented vehicle signals (odometer, battery, fuel level, efficiency, range, ignition, motion and charging state, where available) while the car is on, uploaded to the owner's DANIM account. No location, no vehicle control, no warning or tyre data." />
+        </service>
+
+        <!-- Gleo Interface: the car's voice assistant calls the three read-only functions in assets/schema.json.
+             Exported because Gleo is another app; the reply is addressed to the Gleo package only. -->
+        <receiver
+            android:name=".gleo.GleoReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="app.danim.automotive.GET_VEHICLE_BRIEFING" />
+                <action android:name="app.danim.automotive.ANSWER_RECORD_QUESTION" />
+                <action android:name="app.danim.automotive.SHOW_NEARBY_CHARGERS" />
+                <action android:name="GET_VEHICLE_BRIEFING" />
+                <action android:name="ANSWER_RECORD_QUESTION" />
+                <action android:name="SHOW_NEARBY_CHARGERS" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".boot.BootReceiver"
+            android:exported="true"
+            android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

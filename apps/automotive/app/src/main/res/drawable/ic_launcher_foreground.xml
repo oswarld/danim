@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  assets/brand/danim-symbol-black.svg, 210 x 210, nine 60 x 60 tiles with 12-unit corner radius on a
+  75-unit grid; dark tiles #111111, light tiles #AAAAAA. Paths are in the original 210-unit space;
+  the group scales them to 46 dp (square artwork at most 66/sqrt2 = 46.7 dp so the whole mark stays inside the 66 dp safe-zone circle) and centres them at 54,54 on the 108 dp adaptive canvas.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:translateX="31"
+        android:translateY="31"
+        android:scaleX="0.2190476"
+        android:scaleY="0.2190476">
+        <!-- row 1 -->
+        <path android:fillColor="#111111" android:pathData="M12,0h36a12,12 0 0 1 12,12v36a12,12 0 0 1 -12,12h-36a12,12 0 0 1 -12,-12v-36a12,12 0 0 1 12,-12z" />
+        <path android:fillColor="#111111" android:pathData="M87,0h36a12,12 0 0 1 12,12v36a12,12 0 0 1 -12,12h-36a12,12 0 0 1 -12,-12v-36a12,12 0 0 1 12,-12z" />
+        <path android:fillColor="#AAAAAA" android:pathData="M162,0h36a12,12 0 0 1 12,12v36a12,12 0 0 1 -12,12h-36a12,12 0 0 1 -12,-12v-36a12,12 0 0 1 12,-12z" />
+        <!-- row 2 -->
+        <path android:fillColor="#111111" android:pathData="M12,75h36a12,12 0 0 1 12,12v36a12,12 0 0 1 -12,12h-36a12,12 0 0 1 -12,-12v-36a12,12 0 0 1 12,-12z" />
+        <path android:fillColor="#AAAAAA" android:pathData="M87,75h36a12,12 0 0 1 12,12v36a12,12 0 0 1 -12,12h-36a12,12 0 0 1 -12,-12v-36a12,12 0 0 1 12,-12z" />
+        <path android:fillColor="#111111" android:pathData="M162,75h36a12,12 0 0 1 12,12v36a12,12 0 0 1 -12,12h-36a12,12 0 0 1 -12,-12v-36a12,12 0 0 1 12,-12z" />
+        <!-- row 3 -->
+        <path android:fillColor="#111111" android:pathData="M12,150h36a12,12 0 0 1 12,12v36a12,12 0 0 1 -12,12h-36a12,12 0 0 1 -12,-12v-36a12,12 0 0 1 12,-12z" />
+        <path android:fillColor="#111111" android:pathData="M87,150h36a12,12 0 0 1 12,12v36a12,12 0 0 1 -12,12h-36a12,12 0 0 1 -12,-12v-36a12,12 0 0 1 12,-12z" />
+        <path android:fillColor="#AAAAAA" android:pathData="M162,150h36a12,12 0 0 1 12,12v36a12,12 0 0 1 -12,12h-36a12,12 0 0 1 -12,-12v-36a12,12 0 0 1 12,-12z" />
+    </group>
+</vector>

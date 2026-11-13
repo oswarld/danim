@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "synthetic": true,
+  "evidenceClass": "synthetic_fixture",
+  "source": {
+    "head": "bddca3958f1fdfb18708030752190ac360c4940a",
+    "files": [
+      {
+        "path": "scripts/vehicle-lab/support.mts",
+        "sha256": "b134a5556284eb603177508d8323151f6158764bd28646e70c977fc74ea8f3d9"
+      },
+      {
+        "path": "scripts/vehicle-lab/export-support.mjs",
+        "sha256": "bce98bd81698dc2bf72ef30372cbee91a31d3a2223ed1ad3e62ef36d3c7dc4cd"
+      },
+      {
+        "path": "packages/contracts/src/virtual-vehicle.ts",
+        "sha256": "a99043289d9cff420c6b3182bea85fe9082176ea6f3632c0a2c9dc66e6c54fda"
+      }
+    ]
+  },
+  "simulationEpoch": "2026-10-26T00:00:00.000Z",
+  "profileCount": 6,
+  "caseCount": 52,
+  "replayCount": 2,
+  "consumers": {
+    "goal": {
+      "threadId": "01a16c08-5f99-7d20-8206-9a67b0e7cf21",
+      "existingRunner": "pnpm consumer:mcp:test",
+      "cases": [
+        "hyundai-ioniq5/available-zero",
+        "kia-ev6/unavailable",
+        "hyundai-ioniq5/stale"
+      ],
+      "boundary": "Cached MCP uses dedicated standard-vehicle fixtures; virtual run IDs are not MCP vehicle IDs."
+    },
+    "product": {
+      "threadId": "01a16dd6-5cd1-7a92-859b-8f102c4a3696",
+      "existingRunner": "pnpm test:virtual-vehicle:local",
+      "replays": [
+        "observed-drive-and-charge",
+        "sleep-gap-recovery"
+      ],
+      "boundary": "Owner-scoped /virtual storage only; browser-local /demo/experience is independent."
+    },
+    "oem": {
+      "threadId": "01a1729f-23f4-7ef3-90fa-a109e86d4c9f",
+      "cases": [
+        "hyundai-ioniq5/drive-30-percent",
+        "kia-ev6/drive-critical",
+        "kia-ev6/available-zero",
+        "kia-ev6/unavailable"
+      ],
+      "boundary": "Inject createVirtualOemFetch into real clients. No real OEM bearer or network transport."
+    }
+  },
+  "files": [
+    "pack.json",
+    "manifest.json",
+    "README.txt"
+  ],
+  "warning": "Synthetic fixtures only. No OEM login, consent, command, live collection, public MCP or real-car proof."
+}

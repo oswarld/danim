@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Notification small icon: monochrome (white on transparent, the system tints it), 24 dp with the
+  nine-tile symbol at 20 dp. Same geometry as the launcher foreground; light tiles at 60 % alpha
+  keep the two-tone. The adaptive launcher icon must not be used here (opaque square in the status bar).
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <group
+        android:translateX="2"
+        android:translateY="2"
+        android:scaleX="0.0952381"
+        android:scaleY="0.0952381">
+        <path android:fillColor="#FFFFFFFF" android:pathData="M12,0h36a12,12 0 0 1 12,12v36a12,12 0 0 1 -12,12h-36a12,12 0 0 1 -12,-12v-36a12,12 0 0 1 12,-12z" />
+        <path android:fillColor="#FFFFFFFF" android:pathData="M87,0h36a12,12 0 0 1 12,12v36a12,12 0 0 1 -12,12h-36a12,12 0 0 1 -12,-12v-36a12,12 0 0 1 12,-12z" />
+        <path android:fillColor="#99FFFFFF" android:pathData="M162,0h36a12,12 0 0 1 12,12v36a12,12 0 0 1 -12,12h-36a12,12 0 0 1 -12,-12v-36a12,12 0 0 1 12,-12z" />
+        <path android:fillColor="#FFFFFFFF" android:pathData="M12,75h36a12,12 0 0 1 12,12v36a12,12 0 0 1 -12,12h-36a12,12 0 0 1 -12,-12v-36a12,12 0 0 1 12,-12z" />
+        <path android:fillColor="#99FFFFFF" android:pathData="M87,75h36a12,12 0 0 1 12,12v36a12,12 0 0 1 -12,12h-36a12,12 0 0 1 -12,-12v-36a12,12 0 0 1 12,-12z" />
+        <path android:fillColor="#FFFFFFFF" android:pathData="M162,75h36a12,12 0 0 1 12,12v36a12,12 0 0 1 -12,12h-36a12,12 0 0 1 -12,-12v-36a12,12 0 0 1 12,-12z" />
+        <path android:fillColor="#FFFFFFFF" android:pathData="M12,150h36a12,12 0 0 1 12,12v36a12,12 0 0 1 -12,12h-36a12,12 0 0 1 -12,-12v-36a12,12 0 0 1 12,-12z" />
+        <path android:fillColor="#FFFFFFFF" android:pathData="M87,150h36a12,12 0 0 1 12,12v36a12,12 0 0 1 -12,12h-36a12,12 0 0 1 -12,-12v-36a12,12 0 0 1 12,-12z" />
+        <path android:fillColor="#99FFFFFF" android:pathData="M162,150h36a12,12 0 0 1 12,12v36a12,12 0 0 1 -12,12h-36a12,12 0 0 1 -12,-12v-36a12,12 0 0 1 12,-12z" />
+    </group>
+</vector>
